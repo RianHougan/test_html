@@ -5,7 +5,7 @@ if (age >=18) {
 } else {
     const numberYersLeft = 18 - age;
     let endFrase;
-
+123
     if (numberYersLeft > 1) {endFrase = "years"} else {endFrase = "year"}
     console.log(`You can watch this X, after ${numberYersLeft} ${endFrase}!`)
 }
