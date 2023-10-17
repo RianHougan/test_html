@@ -1,24 +1,25 @@
+const bils = [11, 20, 47]
+// const tips = []
+const totalBils = []
 
-function getAverage (dept1AverSales, dept2AverSales) {
-    return `Average sells: ${(dept1AverSales+dept2AverSales)/2}`
+const calculateTips = (tips) => (tips >= 20) ? Number((tips/100*20).toFixed(2)) : Number((tips/100*15).toFixed(2))
+const tips = bils.map(calculateTips)
+
+
+for (let i = 0;i < bils.length; i++) {
+    totalBils.push(bils[i]+tips[i])
 }
 
-function printBonus (dept1AverSales, dept2AverSales) {
-    const procent = (dept1AverSales + dept2AverSales)/100
-    const dep1 = procent * dept1AverSales;
-    const dep2 = procent * dept2AverSales;
-    // document.writeln(`Department1 has ${dep1}%`);
-    // document.writeln(`Department2 has ${dep2}%`);
-    console.log(`Department1 has ${dep1}%`)
-    console.log(`Department2 has ${dep2}%`)
+let newBody = `
+    <p>${bils.join(', ')}</p>
+<!--    <br>-->
+    <p>${tips.join(', ')}</p>
+<!--    <br>-->
+    <p>${totalBils.join(', ')}</p>
+`
+document.body.innerHTML = newBody
+console.log(bils)
+console.log(tips)
+console.log(totalBils)
 
-    if (dep1 > dep2) {
-       return `Department1 has win with ${dep1-dep2}% bonus.`;
-    } else if (dep2 > dep1) {
-        return `Department2 has win with ${dep2-dep1}% bonus.`;
-    } else return `There are no winner!!!`;
-}
-// document.writeln(getAverage(50, 50))
-// document.writeln(printBonus(50, 50))
-console.log(getAverage(11, 22))
-console.log(printBonus(11, 22))
+// console.log(calculateTips(chek[1]))
